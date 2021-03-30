@@ -7,11 +7,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appatlucascsouza.model.negocio.Locacao;
+import br.edu.infnet.appatlucascsouza.model.negocio.Usuario;
 
 @Repository
-public interface ILocacaoRepository extends CrudRepository<Locacao, Integer>{
-	
-	@Query("from Locacao l where l.usuario.id=:id")
-	List<Locacao> obterLista(Integer id, Sort by);
+public interface IUsuarioRepository extends CrudRepository<Usuario, Integer>{
+
+	@Query("from Usuario u where u.email=:email and u.senha=:senha")
+	Usuario autenticacao(String email, String senha);
+
+	List<Usuario> findAll(Sort by);
 }
+	

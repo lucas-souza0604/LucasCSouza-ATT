@@ -11,17 +11,26 @@
 <body>
 
 	<div class="container">
-	<h2>${nome}</h2>
-	<h3>${email}</h3>
-	<h3><a href="${git}">GIT</a></h3>
+	<h2 style="font-family:Comic Sans MS;">Usuario</h2>
+	<h3>${user.nome}</h3>
+	<h2 style="font-family:Comic Sans MS;">Email</h2>
+	<h3>${user.email}</h3>
+	<h3><a href="${user.git}">GIT</a></h3>
+	<br>
 		
-		<form action="/cliente" method="get">
-			<button type="submit" class="btn btn-primary">Novo Cliente</button>
-		</form>
-		
-		<form action="/locacao" method="get">
-			<button type="submit" class="btn btn-primary">Nova Locacao</button>
-		</form>
+	<form action="/cliente" method="get">
+		<button type="submit" class="btn btn-primary btn-block">Novo Cliente</button>
+	</form>
+	<br>
+	<br>
+	<form action="/locacao" method="get">
+		<button type="submit" class="btn btn-primary btn-block">Nova Locacao</button>
+	</form>
+	<br>
+	<br>
+	<form action="/" method="get">
+		<button type="submit" class="btn btn-danger btn-block">Sair</button>
+	</form>
 		
 	</div>
 </body>
