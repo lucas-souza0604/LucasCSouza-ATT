@@ -23,6 +23,12 @@
 		</form>		
 		<br>
 		
+		<c:if test="${not empty mensagem}">
+			<div class="alert alert-danger">
+	    		<strong>Aviso: </strong> ${mensagem}
+	  		</div>
+  		</c:if>
+		
 		<form action="/usuario/incluir" method="post">
 		
 		<div class="form-group">

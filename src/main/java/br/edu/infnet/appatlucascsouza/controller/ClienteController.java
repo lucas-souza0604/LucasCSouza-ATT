@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.appatlucascsouza.model.negocio.Cliente;
+import br.edu.infnet.appatlucascsouza.model.negocio.Usuario;
 import br.edu.infnet.appatlucascsouza.model.service.ClienteService;
 
 @Controller
@@ -23,7 +25,8 @@ public class ClienteController {
 	}
 	
 	@PostMapping(value = "/cliente/incluir")
-	public String incluir(Cliente cliente) {
+	public String incluir(Cliente cliente, @SessionAttribute("user") Usuario usuario) {
+		cliente.setUsuario(usuario);
 		clienteService.incluir(cliente);
 		return "redirect:/cliente";
 	}

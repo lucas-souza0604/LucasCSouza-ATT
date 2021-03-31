@@ -24,8 +24,18 @@ public class Usuario {
 	@OneToMany
 	@JoinColumn(name = "IdUsuario")
 	private List<Locacao> locacoes;
+	@OneToMany
+	@JoinColumn(name = "IdCliente")
+	private List<Cliente> clientes;
 	
 	
+	
+	public List<Cliente> getClientes() {
+		return clientes;
+	}
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
+	}
 	public List<Locacao> getLocacoes() {
 		return locacoes;
 	}

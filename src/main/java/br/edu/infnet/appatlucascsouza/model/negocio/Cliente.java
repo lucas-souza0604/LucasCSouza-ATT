@@ -3,6 +3,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,9 @@ public class Cliente {
 	private String nome;
 	private String cpf;
 	private String cnh;
+	@ManyToOne
+	@JoinColumn(name = "IdUsuario")
+	private Usuario usuario;
 	
 	
 	public int getId() {
@@ -41,6 +46,13 @@ public class Cliente {
 	public void setCnh(String cnh) {
 		this.cnh = cnh;
 	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
 	
 	
 	

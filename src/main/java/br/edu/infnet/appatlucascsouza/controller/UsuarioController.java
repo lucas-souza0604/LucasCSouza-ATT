@@ -44,8 +44,13 @@ public class UsuarioController {
 	}
 	
 	@GetMapping(value = "/usuario/{id}/excluir")
-	public String excluir(@PathVariable Integer id) {
-		usuarioService.excluir(id);
+	public String excluir(Model model, @PathVariable Integer id) {
+		try {
+			usuarioService.excluir(id);
+		} catch (Exception e) {
+			model.addAttribute("mensagem", "Nao foi possivel excluir o usuario selecionado");
+			return chamaDetalhe(model);
+		}
 		return "redirect:/usuario";	
 	}
 }
