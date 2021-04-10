@@ -19,8 +19,8 @@ public class ClienteController {
 	private ClienteService clienteService;	
 	
 	@GetMapping(value = "/cliente")
-	public String chamaDetalhe (Model model) {
-		model.addAttribute("lista", clienteService.obterLista());
+	public String chamaDetalhe (Model model, @SessionAttribute("user") Usuario usuario) {
+		model.addAttribute("lista", clienteService.obterLista(usuario));
 		return "cliente/detalhe";	
 	}
 	
@@ -32,12 +32,12 @@ public class ClienteController {
 	}
 	
 	@GetMapping(value = "/cliente/{id}/excluir")
-	public String excluir(Model model, @PathVariable Integer id) {
+	public String excluir(Model model, @PathVariable Integer id, @SessionAttribute("user") Usuario usuario) {
 		try {
 			clienteService.excluir(id);
 		} catch (Exception e) {
 			model.addAttribute("mensagem", "Nao foi possivel excluir o cliente selecionado");
-			return chamaDetalhe(model);
+			return chamaDetalhe(model, usuario);
 		}
 		return "redirect:/cliente";	
 	}

@@ -24,7 +24,7 @@ public class LocacaoController {
 	@GetMapping(value = "/locacao")
 	public String chamaDetalhe (Model model, @SessionAttribute("user") Usuario usuario) {
 		model.addAttribute("lista", locacaoService.obterLista(usuario));
-		model.addAttribute("clientes", clienteService.obterLista());
+		model.addAttribute("clientes", clienteService.obterLista(usuario));
 		return "locacao/detalhe";	
 	}
 	

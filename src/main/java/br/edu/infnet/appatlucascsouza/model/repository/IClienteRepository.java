@@ -14,4 +14,6 @@ public interface IClienteRepository extends CrudRepository<Cliente, Integer>{
 	
 	@Query("from Cliente c where c.usuario.id=:id")
 	List<Cliente> obterLista(Integer id, Sort by);
+
+	List<Cliente> findAll(Sort by);
 }

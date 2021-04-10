@@ -32,11 +32,7 @@
 		<div class="form-group">
 			<label>Informe o tipo de automovel</label>
 			<br>
-			<select class="form-control">
-				<option value="automovel">Carro</option>
-				<option value="automovel">Moto</option>
-				<option value="automovel">Barco</option>
-			</select>
+			<input type="text" name="automovel" class="form-control">
 		</div>
 		
 		<div class="form-group">
